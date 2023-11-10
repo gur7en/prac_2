@@ -1,15 +1,21 @@
 #include <stdio.h>
+#include "result.hpp"
 
 #ifndef DATE_H
 #define DATE_H
 
-struct date {
-    int day;
-    int month;
-    int year;
+class Date {
+    friend class TestDate;
+    public:
+        Date(int year, int month, int day);
+        Date(FILE* in, Result& res);
+        void read(FILE* in, Result& res);
+        void print(FILE* out);
+    private:
+        int year;
+        int month;
+        int day;
+        int check();
 };
-
-
-void read_date(FILE* in, date& out);
 
 #endif // DATE_H
