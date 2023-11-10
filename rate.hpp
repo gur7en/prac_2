@@ -1,7 +1,6 @@
 #include <string>
 
 #include "date.hpp"
-#include "file.hpp"
 #include "result.hpp"
 
 #ifndef RATE_H
@@ -9,6 +8,7 @@
 
 class Rate {
     public:
+        Rate();
         Rate(FILE* in, Result& res);
         void read(FILE* in, Result& res);
         void print(FILE* out);

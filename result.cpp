@@ -19,31 +19,19 @@ int Result::getStrNum()
 }
 
 
-void Result::setCharInStrNum(int char_num)
-{
-    charInStringNum = char_num;
-}
-
-
-int Result::getCharInStrNum()
-{
-    return charInStringNum;
-}
-
-
-bool Result::operator == (Result::Code code)
+bool Result::operator == (Result::Code code) const
 {
     return resultCode == code;
 }
 
 
-bool Result::operator != (Result::Code code)
+bool Result::operator != (Result::Code code) const
 {
     return resultCode != code;
 }
 
 
-Result::Code Result::operator = (Result::Code code)
+Result::Code Result::operator = (const Result::Code code)
 {
     return (resultCode = code);
 }

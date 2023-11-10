@@ -14,15 +14,12 @@ class Result {
         Result(); 
         void setStrNum(int str_num);
         int getStrNum();
-        void setCharInStrNum(int char_num);
-        int getCharInStrNum();
-        bool operator == (Result::Code);
-        bool operator != (Result::Code);
-        Code operator = (Result::Code code);
+        bool operator == (Result::Code code) const;
+        bool operator != (Result::Code code) const;
+        Code operator = (const Result::Code code);
     private:
         Code resultCode;
         int stringInFileNum;
-        int charInStringNum;
 };
 
 #endif // RESULTS_H

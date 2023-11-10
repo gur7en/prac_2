@@ -23,10 +23,14 @@ int main(int argc, char* argv[])
 #ifdef TEST
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
-#endif
-    FILE* in_file = fopen("in.txt", "r");
+#else
+    if(argc < 2) {
+        printf("Usage: \n%s path_to_file\n", argv[0]);
+        return 0;
+    }
+    FILE* in_file = fopen(argv[1], "r");
     if(!in_file) {
-        printf("in.txt not found!");
+        printf("%s is not found!\n", argv[1]);
         return 1;
     }
     Result res;
@@ -46,6 +50,7 @@ int main(int argc, char* argv[])
         }
     }
     return 0;
+#endif
 }
 
 

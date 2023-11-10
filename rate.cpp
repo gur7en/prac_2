@@ -4,6 +4,12 @@
 
 // ============================================================================
 
+Rate::Rate()
+    : date(0, 0, 0) // have not gotten to this field yet
+{
+}
+
+
 Rate::Rate(FILE* in, Result& res)
     : date(0, 0, 0) // have not gotten to this field yet
 {
@@ -16,6 +22,8 @@ void Rate::read(FILE* in, Result& res)
     if(res != Result::Success) {
         return;
     }
+    source.clear();
+    destin.clear();
     read_do(in, source, res);
     read_do(in, destin, res);
     if(res != Result::Success) {
