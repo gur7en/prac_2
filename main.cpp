@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
     if(res == Result::Success) {
         print_list(rate_lst);
     } else {
-        printf("Error in record %i, ", res.getStrNum());
+        printf("Error in line %i, ", res.getStrNum());
         if(res == Result::ErrorReading) {
             printf("incorrect format.\n");
         } else if(res == Result::ErrorDate) {
@@ -62,7 +62,7 @@ void read_list(FILE* in, std::list<Rate*>& out, Result& res)
             if(res == Result::EndOfFile) {
                 res = Result::Success;
             } else {
-                res.setStrNum(out.size() + 1);
+                res.counterStrNum(in);
             }
             delete cur;
             break;
@@ -78,4 +78,5 @@ void print_list(std::list<Rate*>& lst)
         cur->print(stdout);
     }
 }
+
 

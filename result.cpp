@@ -7,9 +7,17 @@ Result::Result()
 }
 
 
-void Result::setStrNum(int str_num)
+void Result::counterStrNum(FILE* f)
 {
-    stringInFileNum = str_num;
+    long pos = ftell(f);
+    rewind(f);
+    stringInFileNum = 0;
+    for(long i = 0; i < pos; ++i) {
+        int cur = fgetc(f);
+        if(cur == '\n') {
+            ++stringInFileNum;
+        }
+    }
 }
 
 

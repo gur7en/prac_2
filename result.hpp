@@ -1,3 +1,6 @@
+#include <stdio.h>
+
+
 #ifndef RESULTS_H
 #define RESULTS_H
 
@@ -12,7 +15,7 @@ class Result {
             ErrorDate
         };
         Result(); 
-        void setStrNum(int str_num);
+        void counterStrNum(FILE* f);
         int getStrNum();
         bool operator == (Result::Code code) const;
         bool operator != (Result::Code code) const;
