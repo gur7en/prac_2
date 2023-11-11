@@ -11,11 +11,11 @@ class Date {
         Date(FILE* in, Result& res);
         void read(FILE* in, Result& res);
         void print(FILE* out);
+        int check();
     private:
         int year;
         int month;
         int day;
-        int check();
 };
 
 #endif // DATE_H
