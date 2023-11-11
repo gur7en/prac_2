@@ -3,6 +3,22 @@
 Применён кодстайл WebKit
 
 Диаграмма классов (см. class_diagramm.png)
+,----------------.
+|Rate            |
+|----------------|
+|+ void read()   |
+|+ void print()  |
+|- string source |
+|- string destin |
+|- double rate   |
+|- Date date     |
+|- void read_do()|
+`----------------'
+        / \
+        \ /
+         |
+         |
+         |        
  ,--------------. 
  |Date          | 
  |--------------| 
@@ -12,17 +28,4 @@
  |- int year    | 
  |- int month   | 
  |- int day     | 
- |              | 
  `--------------' 
-         |        
-         |        
-,----------------.
-|Rate            |
-|----------------|
-|+ void read()   |
-|+ void print()  |
-|- string source |
-|- string destin |
-|- double rate   |
-|- void read_do()|
-`----------------'

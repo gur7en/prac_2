@@ -1,22 +1,25 @@
 @startuml
 
 class Date{
-        + void read()
-        + void print()
-        + int check()
-        - int year
-        - int month
-        - int day
+    + void read()
+    + void print()
+    + int check()
+    - int year
+    - int month
+    - int day
 
 }
 
 class Rate {
-        + void read()
-        + void print()
-        - string source
-        - string destin
-        - double rate
-        - void read_do()
+    + void read()
+    + void print()
+    - string source
+    - string destin
+    - double rate
+    - Date date
+    - void read_do()
 }
+
+Rate *-- Date
 
 @enduml
