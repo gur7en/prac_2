@@ -14,11 +14,12 @@
 // ============================================================================
 
 void read_list(FILE* in, std::list<Rate*>& out, Result& res);
-void print_list(std::list<Rate*>& lst);
+void print_list(const std::list<Rate*>& lst);
+void free_list(std::list<Rate*>& lst);
 
 // ============================================================================
 
-int main(int argc, char* argv[])
+int main(int argc, const char* argv[])
 {
 #ifdef TEST
     testing::InitGoogleTest(&argc, argv);
@@ -49,6 +50,7 @@ int main(int argc, char* argv[])
             printf("unexpected end of file.\n");
         }
     }
+    free_list(rate_lst);
     return 0;
 #endif
 }
@@ -71,8 +73,17 @@ void read_list(FILE* in, std::list<Rate*>& out, Result& res)
     }
 }
 
+void free_list(std::list<Rate*>& lst)
+{
+    auto it = lst.begin();
+    while(it != lst.end()) {
+        delete *it;
+        it = lst.erase(it);
+    }
+}
 
-void print_list(std::list<Rate*>& lst)
+
+void print_list(const std::list<Rate*>& lst)
 {
     for(Rate* cur : lst) {
         cur->print(stdout);

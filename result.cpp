@@ -2,7 +2,7 @@
 
 
 Result::Result()
-    : resultCode(Success)
+    : resultCode(Success), stringInFileNum(0)
 {
 }
 
@@ -41,6 +41,7 @@ bool Result::operator != (Result::Code code) const
 
 Result::Code Result::operator = (const Result::Code code)
 {
-    return (resultCode = code);
+    resultCode = code;
+    return resultCode;
 }
 

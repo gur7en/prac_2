@@ -6,7 +6,7 @@
 // ============================================================================
 
 Rate::Rate()
-    : date(0, 0, 0) // have not gotten to this field yet
+    : rate(0), date(0, 0, 0) // have not gotten to this field yet
 {
 }
 
